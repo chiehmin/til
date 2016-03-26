@@ -1,0 +1,1 @@
+All the content is from [Glade tutorial wiki](https://wiki.gnome.org/action/show/Apps/Glade/Tutorials?action=show&redirect=Glade%2FTutorials). But some image is missing which make it hard to read. I get the missing image from [wayback machine](https://web.archive.org/) and re-orginize it. 
