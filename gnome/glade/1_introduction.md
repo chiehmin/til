@@ -27,7 +27,7 @@ I'll do my best to write this tutorial "newcomer to GTK+" friendly and try to ex
 Contents
 
 * [Glade3 tutorial (1) - Introduction](./introduction.md)
-* [Glade3 tutorial (2) - Constructing interface]()
+* [Glade3 tutorial (2) - Constructing interface](./2_constructing_interface.md)
 * [Glade3 tutorial (3) - Size negotiation]()
 * [Glade3 tutorial (4) - GtkTreeView data backend]()
 * [Glade3 tutorial (5) - Modifying widget tree]()
