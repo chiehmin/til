@@ -1,0 +1,1 @@
+[用十分鐘瞭解JavaScript的模組](http://www.slideshare.net/ccckmit/javascript-npm)
