@@ -16,11 +16,12 @@
 * Clutter: Clutter is a GObject-based graphics library for creating hardware-accelerated user interfaces.
 	* [wiki](https://en.wikipedia.org/wiki/Clutter_(software))
 
-
-## Misc
-[PyGI docs](https://lazka.github.io/pgi-docs/Gtk-3.0/)
-
 ## Applications
 
 * Polari: IRC client
 	* [homepage](https://wiki.gnome.org/Apps/Polari)
+
+## Tuturial and docs
+
+* [gtk docs](https://developer.gnome.org/gtk3/stable/)
+* [PyGI docs](https://lazka.github.io/pgi-docs/Gtk-3.0/)
