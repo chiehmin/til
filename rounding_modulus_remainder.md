@@ -3,10 +3,10 @@
 C/C++ and Java choose rounding to zero. Python and Ruby choose rounding to negative.
 
 In C/C++ and Java
-`-1 / 10` returns 0
+`-1 / 10` returns `0`
 
 In Python and Ruby
-`-1 / 10` returns -1
+`-1 / 10` returns `-1`
 
 [so disscussion](http://stackoverflow.com/questions/19517868/integer-division-by-negative-number)
 
