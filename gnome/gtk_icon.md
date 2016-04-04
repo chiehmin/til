@@ -1,3 +1,5 @@
+View all icons using `gtk3-icon-browser`
+
 ## Icon Path
 
 Gtk Icons can be found here at `/usr/share/icons/<theme>`
