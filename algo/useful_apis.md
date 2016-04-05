@@ -42,6 +42,16 @@ Known Implementing Classes:
 * `pollFirst()`
 * `pollLast()`
 
+#### Stack Operation
+* `push(e)`: `addFirst(e)`
+* `pop()`: `removeFirst()`
+* `peek()`: `peekFirst()`
+
+#### Queue Operation
+* `offer(e)`: `offerLast(e)`
+* `poll()`: `pollFirst()`
+* `peek()`: `peekFirst()`
+
 #### Linkedlist
 
 [docs](https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html)
