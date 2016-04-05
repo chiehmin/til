@@ -9,6 +9,14 @@
 * Integer.MAX_VALUE
 * Integer.MIN_VALUE
 
+## Misc
+
+### Convert from Integer to String
+
+* `String.valueOf(number)`
+* `number + ""`
+* `Integer.toString(number)`
+
 ## Data Strutures
 
 ### Queue
