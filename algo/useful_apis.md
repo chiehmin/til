@@ -9,6 +9,69 @@
 * Integer.MAX_VALUE
 * Integer.MIN_VALUE
 
+## Data Strutures
+
+### Queue
+
+[docs](https://docs.oracle.com/javase/7/docs/api/java/util/Queue.html)
+
+`public interface Queue<E> extends Collection<E>`
+
+Known Implementing Classes:
+* ... LinkedList ...
+
+|          |  Throws exception |  Returns special value | 
+|----------|-------------------|------------------------|
+|  Insert  |  add(e)           |  offer(e)              |
+|  Remove  |  remove()         |  poll()                |
+|  Examine |  element()        |  peek()                |
+
+### Deque
+
+[docs](https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html)
+
+`public interface Deque<E> extends Queue<E>`
+
+* `offer(E e)`
+* `offerFirst(E e)`
+* `offerLast(E e)`
+* `peek()`
+* `peekFirst()`
+* `peekLast()`
+* `poll()`
+* `pollFirst()`
+* `pollLast()`
+
+#### Linkedlist
+
+[docs](https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html)
+
+```java
+public class LinkedList<E>
+extends AbstractSequentialList<E>
+implements List<E>, Deque<E>, Cloneable, Serializable
+```
+
+#### ArrayDeque
+
+[docs](https://docs.oracle.com/javase/7/docs/api/java/util/ArrayDeque.html)
+
+```
+public class ArrayDeque<E>
+extends AbstractCollection<E>
+implements Deque<E>, Cloneable, Serializable
+```
+
+Resizable-array implementation of the Deque interface. Array deques have no capacity restrictions; they grow as necessary to support usage. They are not thread-safe; in the absence of external synchronization, they do not support concurrent access by multiple threads. Null elements are prohibited. This class is likely to be faster than Stack when used as a stack, and faster than LinkedList when used as a queue.
+
+## Stack
+
+[docs](https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html)
+
+A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class. For example:
+
+`Deque<Integer> stack = new ArrayDeque<Integer>();`
+
 ## Binary Search
 
 `java.util.Arrays.binarySearch(T[] a, T key)`
