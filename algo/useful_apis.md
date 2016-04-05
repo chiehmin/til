@@ -6,6 +6,9 @@
 * `Math.min(T a, T b)`
 * `Math.abs(T a)`
 
+* Integer.MAX_VALUE
+* Integer.MIN_VALUE
+
 ## Binary Search
 
 `java.util.Arrays.binarySearch(T[] a, T key)`
