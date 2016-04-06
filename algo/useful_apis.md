@@ -11,6 +11,51 @@
 
 ## Misc
 
+### String trim
+
+[docs](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#trim--)
+```java
+String a = "   abc   ";
+a.trim();  // returns "abc"
+```
+
+### String Split
+
+[Java 8 docs](http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-)
+
+```
+public String[] split(String regex)
+```
+```
+:	{ "boo", "and", "foo" }
+o	{ "b", "", ":and:f" }
+```
+
+### String Join
+
+[Java 8 docs](http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#join-java.lang.CharSequence-java.lang.CharSequence...-)
+
+```java
+public static String join(CharSequence delimiter, CharSequence... elements)
+public static String join(CharSequence delimiter, Iterable<? extends CharSequence> elements)
+```
+```java
+String message = String.join("-", "Java", "is", "cool");
+// message returned is: "Java-is-cool"
+
+List<String> strings = new LinkedList<>();
+strings.add("Java");strings.add("is");
+strings.add("cool");
+String message = String.join(" ", strings);
+//message returned is: "Java is cool"
+
+Set<String> strings = new LinkedHashSet<>();
+strings.add("Java"); strings.add("is");
+strings.add("very"); strings.add("cool");
+String message = String.join("-", strings);
+//message returned is: "Java-is-very-cool"
+```
+
 ### Convert from Integer to String
 
 * `String.valueOf(number)`
