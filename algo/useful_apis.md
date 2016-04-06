@@ -19,6 +19,71 @@
 
 ## Data Strutures
 
+### Set
+
+[docs](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html)
+
+Implementing classes:
+...`HashSet`, `TreeSet`...
+
+Methods:
+* `add(E e)`
+* `addAll(Collection<? extends E> c)`
+* `contains(Object o)`
+* `containsAll(Collection<?> c)`
+* `isEmpty()`
+* `remove(Object o)`
+* `removeAll(Collection<?> c)`
+* `retainAll(Collection<?> c)`: set intersection
+* `size()`
+* `toArray()`
+
+### Map
+
+[docs](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html)
+
+Nested class:
+```java
+static interface 	Map.Entry<K,V>
+// A map entry (key-value pair).
+```
+* `getKey()`
+* `getValue()`
+* `setValue(V value)`
+
+Implementing classes:
+...`HashMap`, `HashTable`, `TreeMap`...
+
+[HashMap vs HashTable](http://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable)
+
+Hashtable is synchronized, whereas HashMap is not. This makes HashMap better for non-threaded applications, as unsynchronized Objects typically perform better than synchronized ones.
+
+Methods:
+* `put(K key, V value)`
+* `putAll(Map<? extends K,? extends V> m)`
+* `get(Object key)`
+* `getOrDefault(Object key, V defaultValue)`: Returns the value to which the specified key is mapped, or defaultValue if this map contains no mapping for the key.
+* `remove(Object key)`
+* `remove(Object key, Object value)`: Removes the entry for the specified key only if it is currently mapped to the specified value.
+* `Set<Map.Entry<K,V>>	entrySet()`: Returns a Set view of the mappings contained in this map.
+
+
+* `clear()`
+* `containsKey(Object key)`
+* `containsValue(Object value)`
+* `isEmpty()`
+* `keySet()`
+
+Iterate over a map
+[so discussion](http://stackoverflow.com/questions/15422428/iterator-over-hashmap-in-java)
+[blog](http://www.sergiy.ca/how-to-iterate-over-a-map-in-java/)
+```java
+Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+    System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+}
+```
+
 ### Queue
 
 [docs](https://docs.oracle.com/javase/7/docs/api/java/util/Queue.html)
