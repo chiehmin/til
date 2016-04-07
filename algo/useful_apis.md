@@ -252,4 +252,26 @@ Collections.sort(list, (a, b) -> b - a);
 // Comparator as variable
 Comparator<Integer> comp = (a, b) -> b - a;
 Collections.sort(list, comp);
+
+// custom type with lambda comparator
+static private class Node {
+    int x, y;
+    public String toString() { return String.format("(x: %d, y: %d)", x, y);}
+}
+
+static private void sortNode() {
+    Node[] arr = new Node[NUM];
+    Random rdm = new Random();
+    for(int i = 0; i < NUM; i++) {
+        arr[i] = new Node();
+        arr[i].x = rdm.nextInt(100);
+        arr[i].y = rdm.nextInt(100);
+    }
+    Comparator<Node> compX = (a, b) -> a.x - b.x;
+    Comparator<Node> compY = (a, b) -> a.y - b.y;
+    Arrays.sort(arr, compX);
+    System.out.println(Arrays.asList(arr));
+    Arrays.sort(arr, compY);
+    System.out.println(Arrays.asList(arr));
+}
 ```
