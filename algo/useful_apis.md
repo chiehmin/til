@@ -105,8 +105,10 @@ Hashtable is synchronized, whereas HashMap is not. This makes HashMap better for
 
 Methods:
 * `put(K key, V value)`
+	* Behavior: Associates the specified value with the specified key in this map (optional operation). If the map previously contained a mapping for the key, the old value is replaced by the specified value. (A map m is said to contain a mapping for a key k if and only if m.containsKey(k) would return true.)
+	* Returns: the previous value associated with key, or null if there was no mapping for key. (A null return can also indicate that the map previously associated null with key, if the implementation supports null values.)
 * `putAll(Map<? extends K,? extends V> m)`
-* `get(Object key)`
+* `get(Object key)`: null if this map contains no mapping for the key
 * `getOrDefault(Object key, V defaultValue)`: Returns the value to which the specified key is mapped, or defaultValue if this map contains no mapping for the key.
 * `remove(Object key)`
 * `remove(Object key, Object value)`: Removes the entry for the specified key only if it is currently mapped to the specified value.
@@ -202,9 +204,10 @@ A more complete and consistent set of LIFO stack operations is provided by the D
 
 ## Binary Search
 
-`java.util.Arrays.binarySearch(T[] a, T key)`
-`java.util.Collections.binarySearch(List<? extends Comparable<? super T>> list, T key)`
-`java.util.Collections.binarySearch(List<? extends T> list, T key, Comparator<? super T> c)`
+* `java.util.Arrays.binarySearch(T[] a, T key)`
+* `java.util.Arrays.binarySearch(T[] a, T key, Comparator<? super T> c)`
+* `java.util.Collections.binarySearch(List<? extends Comparable<? super T>> list, T key)`
+* `java.util.Collections.binarySearch(List<? extends T> list, T key, Comparator<? super T> c)`
 
 Returns:
 the index of the search key, if it is contained in the list; otherwise, (-(insertion point) - 1). The insertion point is defined as the point at which the key would be inserted into the list: the index of the first element greater than the key, or list.size() if all elements in the list are less than the specified key. Note that this guarantees that the return value will be >= 0 if and only if the key is found.
@@ -214,4 +217,39 @@ Insertion point can be get by `~returnValue`
 ```java
 int position = Arrays.binarySearch(sum, prev + s);
 position = position > 0 ? position : ~position;
+```
+
+## Sort
+
+Java sort is stable sort. Most implementation use MergeSort.
+
+* `java.util.Arrays.sort(T[] a)`
+* `java.util.Arrays.sort(T[] a, int fromIndex, int toIndex)`
+* `java.util.Arrays.sort(T[] a, Comparator<? super T> c)`
+* `java.util.Arrays.sort(T[] a, int fromIndex, int toIndex, Comparator<? super T> c)`
+
+* `java.util.Collections.sort(List<T> list)`
+* `java.util.Collections.sort(List<T> list, Comparator<? super T> c)`
+
+```java
+// default sort
+Collections.sort(list);
+
+// reverseOrder
+Collections.sort(list, Comparator.reverseOrder());
+
+// custom comparator
+Collections.sort(list, new Comparator<Integer>() {
+    @Override
+    public int compare(Integer a, Integer b) {
+        return b - a;
+    }
+});
+
+// Using lambda
+Collections.sort(list, (a, b) -> b - a);
+
+// Comparator as variable
+Comparator<Integer> comp = (a, b) -> b - a;
+Collections.sort(list, comp);
 ```
