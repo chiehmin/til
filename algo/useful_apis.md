@@ -131,6 +131,14 @@ for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
 }
 ```
 
+Iterate over a map using lambda
+```java
+Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+map.forEach((k, v) -> {
+	System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());	
+});
+```
+
 ### Queue
 
 [docs](https://docs.oracle.com/javase/7/docs/api/java/util/Queue.html)
