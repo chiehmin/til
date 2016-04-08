@@ -135,7 +135,7 @@ Iterate over a map using lambda
 ```java
 Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 map.forEach((k, v) -> {
-	System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());	
+	System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 });
 ```
 
@@ -148,7 +148,7 @@ map.forEach((k, v) -> {
 Known Implementing Classes:
 * ... LinkedList ...
 
-|          |  Throws exception |  Returns special value | 
+|          |  Throws exception |  Returns special value |
 |----------|-------------------|------------------------|
 |  Insert  |  add(e)           |  offer(e)              |
 |  Remove  |  remove()         |  poll()                |
@@ -194,7 +194,7 @@ implements List<E>, Deque<E>, Cloneable, Serializable
 
 [docs](https://docs.oracle.com/javase/7/docs/api/java/util/ArrayDeque.html)
 
-```
+```java
 public class ArrayDeque<E>
 extends AbstractCollection<E>
 implements Deque<E>, Cloneable, Serializable
