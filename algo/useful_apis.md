@@ -202,7 +202,14 @@ A more complete and consistent set of LIFO stack operations is provided by the D
 
 `Deque<Integer> stack = new ArrayDeque<Integer>();`
 
-## Binary Search
+## Arrays and Collections
+
+### Fill
+
+* `java.util.Arrays.fill(T[] a, T val)`
+* `java.util.Collections.fill(List<? super T> list, T obj)`
+
+### Binary Search
 
 * `java.util.Arrays.binarySearch(T[] a, T key)`
 * `java.util.Arrays.binarySearch(T[] a, T key, Comparator<? super T> c)`
@@ -219,7 +226,7 @@ int position = Arrays.binarySearch(sum, prev + s);
 position = position > 0 ? position : ~position;
 ```
 
-## Sort
+### Sort
 
 Java sort is stable sort. Most implementation use MergeSort.
 
