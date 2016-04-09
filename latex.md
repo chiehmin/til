@@ -5,6 +5,16 @@
 $ sudo dnf install texlive
 $ sudo dnf install latexmk # used by atom latex plugins
 ```
+#### Xelatex
+```shell
+$ sudo dnf install install latex-xetex
+$ sudo dnf install texlive-collection-latex \
+texlive-collection-latexrecommended \
+texlive-xetex-def \
+texlive-collection-xetex \
+texlive-collection-latexextra
+```
+
 ### Atom editor plugins Installation
 ```shell
 $ apm install latex
