@@ -9,7 +9,19 @@
 * Integer.MAX_VALUE
 * Integer.MIN_VALUE
 
-## Misc
+## String manipulation
+
+* contains(CharSequence s)
+* indexOf(int ch)
+* indexOf(int ch, int fromIndex)
+* indexOf(String str)
+* indexOf(String str, int fromIndex)
+* matches(String regex)
+* startsWith(String prefix)
+* substring(int beginIndex)
+* substring(int beginIndex, int endIndex): [begin, end)
+* toCharArray()
+* valueOf(T val)
 
 ### String trim
 
@@ -54,6 +66,19 @@ strings.add("Java"); strings.add("is");
 strings.add("very"); strings.add("cool");
 String message = String.join("-", strings);
 //message returned is: "Java-is-very-cool"
+```
+
+### Regular expression
+
+```java
+String num = "02-2244335, 04-7255715, 03-394829";
+Pattern p = Pattern.compile("(\\d{2})-(\\d*)");
+Matcher m = p.matcher(num);
+while(m.find()) {
+    System.out.println(m.group(0));  // group 0 represented the whole matching string
+    System.out.println(m.group(1));
+    System.out.println(m.group(2));
+}
 ```
 
 ### Convert from Integer to String
