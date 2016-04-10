@@ -9,6 +9,26 @@
 * Integer.MAX_VALUE
 * Integer.MIN_VALUE
 
+### Parse string to integer with specific radix
+
+[docs](http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseInt-java.lang.String-int-)
+
+* public static int parseInt(String s, int radix)
+```java
+parseInt("0", 10) returns 0
+parseInt("473", 10) returns 473
+parseInt("+42", 10) returns 42
+parseInt("-0", 10) returns 0
+parseInt("-FF", 16) returns -255
+parseInt("1100110", 2) returns 102
+parseInt("2147483647", 10) returns 2147483647
+parseInt("-2147483648", 10) returns -2147483648
+parseInt("2147483648", 10) throws a NumberFormatException
+parseInt("99", 8) throws a NumberFormatException
+parseInt("Kona", 10) throws a NumberFormatException
+parseInt("Kona", 27) returns 411787
+```
+
 ## String manipulation
 
 * contains(CharSequence s)
