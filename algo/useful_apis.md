@@ -247,13 +247,32 @@ implements Deque<E>, Cloneable, Serializable
 
 Resizable-array implementation of the Deque interface. Array deques have no capacity restrictions; they grow as necessary to support usage. They are not thread-safe; in the absence of external synchronization, they do not support concurrent access by multiple threads. Null elements are prohibited. This class is likely to be faster than Stack when used as a stack, and faster than LinkedList when used as a queue.
 
-## Stack
+### Stack
 
 [docs](https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html)
 
 A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class. For example:
 
 `Deque<Integer> stack = new ArrayDeque<Integer>();`
+
+### PriorityQueue
+
+`java.util.PriorityQueue<E>`
+
+All Implemented Interfaces: Serializable, Iterable<E>, Collection<E>, Queue<E>
+
+[docs](https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html)
+
+* `PriorityQueue()`
+* `PriorityQueue(Collection<? extends E> c)`: Creates a PriorityQueue containing the elements in the specified collection.
+* `PriorityQueue(Comparator<? super E> comparator)`: Creates a PriorityQueue with the default initial capacity and whose elements are ordered according to the specified comparator.
+
+* contains(Object o)
+* offer(E e)
+* peek()
+* poll()
+* remove(Object o)
+* size()
 
 ## Arrays and Collections
 
