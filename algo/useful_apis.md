@@ -284,7 +284,9 @@ All Implemented Interfaces: Serializable, Iterable<E>, Collection<E>, Queue<E>
 ### Binary Search
 
 * `java.util.Arrays.binarySearch(T[] a, T key)`
+* `java.util.Arrays.binarySearch(T[] a, int fromIndex, int toIndex, T key)`
 * `java.util.Arrays.binarySearch(T[] a, T key, Comparator<? super T> c)`
+* `java.util.Arrays.binarySearch(T[] a, int fromIndex, int toIndex, T key, Comparator<? super T> c)`
 * `java.util.Collections.binarySearch(List<? extends Comparable<? super T>> list, T key)`
 * `java.util.Collections.binarySearch(List<? extends T> list, T key, Comparator<? super T> c)`
 
