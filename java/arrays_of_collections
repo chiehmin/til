@@ -1,0 +1,13 @@
+# Allocating an array of collections
+
+This will cause generic array creation error.
+```java
+Set<Integer>[][] dp = new Set<Integer>[10][10];     // illegal
+```
+
+After removing the type, the compilation will success.
+```java
+Set<Integer>[][] dp = new Set[10][10];
+```
+
+[Java theory and practice: Generics gotchas](http://www.ibm.com/developerworks/java/library/j-jtp01255/index.html)
