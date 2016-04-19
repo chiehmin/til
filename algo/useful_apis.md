@@ -128,6 +128,14 @@ Methods:
 * `size()`
 * `toArray()`
 
+#### TreeSet
+
+[docs](https://docs.oracle.com/javase/8/docs/api/java/util/TreeSet.html)
+
+Methods:
+* `E floor(E e)`: Returns the greatest element in this set less than or equal to the given element, or null if there is no such element.
+* `E ceiling(E e)`: Returns the least element in this set greater than or equal to the given element, or null if there is no such element.
+
 ### Map
 
 [docs](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html)
@@ -279,6 +287,7 @@ All Implemented Interfaces: Serializable, Iterable<E>, Collection<E>, Queue<E>
 ### Fill
 
 * `java.util.Arrays.fill(T[] a, T val)`
+* `java.util.Arrays.fill(T[] a, int fromIndex, int toIndex, T val)`
 * `java.util.Collections.fill(List<? super T> list, T obj)`
 
 ### Binary Search
