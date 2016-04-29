@@ -172,7 +172,8 @@ Methods:
 * `containsKey(Object key)`
 * `containsValue(Object value)`
 * `isEmpty()`
-* `keySet()`
+* `Set<K> keySet()`: Returns a Set view of the keys contained in this map.
+* `Collection<V> values()`: Returns a Collection view of the values contained in this map.
 
 Iterate over a map
 [so discussion](http://stackoverflow.com/questions/15422428/iterator-over-hashmap-in-java)
