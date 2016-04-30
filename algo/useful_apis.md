@@ -285,6 +285,9 @@ All Implemented Interfaces: Serializable, Iterable<E>, Collection<E>, Queue<E>
 
 ## Arrays and Collections
 
+### Misc
+* `Arrays.deepEquals(Object[] a1, Object[] a2)`: Returns true if the two specified arrays are deeply equal to one another.
+
 ### Fill
 
 * `java.util.Arrays.fill(T[] a, T val)`
