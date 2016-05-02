@@ -286,6 +286,7 @@ All Implemented Interfaces: Serializable, Iterable<E>, Collection<E>, Queue<E>
 ## Arrays and Collections
 
 ### Misc
+* `Arrays.equals(T[] a1, T[] a2)`: T is overloading for all types.
 * `Arrays.deepEquals(Object[] a1, Object[] a2)`: Returns true if the two specified arrays are deeply equal to one another.
 
 ### Fill
