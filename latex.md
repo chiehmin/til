@@ -56,50 +56,13 @@ The main document is contained within the document environment.
 \newpage{} % Pagebreak
 ```
 
-#### Figure Example
-```latex
-\documentclass{article}
+## Misc
 
-\usepackage{graphicx}
-
-\begin{document}
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{boat.jpg}
-  \caption{A boat.}
-  \label{fig:boat1}
-\end{figure}
-
-Figure \ref{fig:boat1} shows a boat.
-
-\end{document}
+Indenting for the first paragraph of \chapter and \sections
 ```
-
-#### Reference Example
-```latex
-\section{}\label{sec:YOURLABEL}
-...
-I've written text in section \ref{sec:YOURLABEL}.
+\usepackage{indentfirst}
 ```
-
-#### Bibliography
-```bibtex
-@ARTICLE=
-{
-VELLAGE:1,
-AUTHOR="Claudio Vellage",
-TITLE="A quick start to \LaTeX{}",
-YEAR="2013",
-PUBLISHER="",
-}
+Removing blank page after \part or \chapter
 ```
-```latex
-\usepackage[backend=bibtex,style=verbose-trad2]{biblatex} % Use biblatex package
-\bibliography{FILENAME} % The name of the .bib file (name without .bib)
-
-...
-This feature works as I described in \cite{VELLAGE:1}.
-...
-
-\printbibliography
+\documentclass[oneside]{book}
 ```
