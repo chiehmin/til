@@ -1,5 +1,6 @@
 # Nim Game
 [wiki](https://en.wikipedia.org/wiki/Nim)
+[nim wiki](https://brilliant.org/wiki/nim/)
 The normal game is between two players and played with heaps of any number of objects. The two players alternate taking any number of objects from any single one of the heaps. The goal is to be the last to take an object.
 
 ## Nim Sum
@@ -34,3 +35,43 @@ t = 0 ⊕ t
 **Lemma 2.** If s ≠ 0, it is possible to make a move so that t = 0.
 
 **FatMinMin Note:** No matter what move your opponent make, make the nim-sum back to 0 and you will win the game eventually.
+
+```java
+// https://www.hackerrank.com/contests/5-days-of-game-theory/challenges/day-2-nim-game
+Scanner sc = new Scanner(System.in);
+int t = sc.nextInt();
+while((t--) > 0) {
+    int n = sc.nextInt();
+    int nimSum = 0;
+    for(int i = 0; i < n; i++) {
+        nimSum ^= sc.nextInt();
+    }
+    System.out.println(nimSum > 0 ? "First" : "Second");
+}
+```
+
+# Misère Nim
+The player who removes the last stone loses the game. In misère play, the goal is instead to ensure that the opponent is forced to take the last remaining object.
+
+```java
+// https://www.hackerrank.com/contests/5-days-of-game-theory/challenges/misere-nim/
+Scanner sc = new Scanner(System.in);
+int t = sc.nextInt();
+while((t--) > 0) {
+    int n = sc.nextInt();
+    int nimSum = 0;
+    int maxHeap = 0;
+    for(int i = 0; i < n; i++) {
+        int tmp = sc.nextInt();
+        nimSum ^= tmp;
+        maxHeap = Math.max(maxHeap, tmp);
+    }
+    boolean first = true;
+    if(maxHeap == 1) {
+        first = (n & 1) == 0;
+    } else {
+        first = (nimSum > 0);
+    }
+    System.out.println(first ? "First" : "Second");
+}
+```
