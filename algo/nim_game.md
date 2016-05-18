@@ -75,3 +75,48 @@ while((t--) > 0) {
     System.out.println(first ? "First" : "Second");
 }
 ```
+
+# Nimble Game
+Nimble is played on a game board consisting of a line of squares labeled: 0,
+1, 2, 3, . . . . A finite number of coins is placed on the squares with possibly
+more than one coin on a single square. A move consists of taking one of the
+coins and moving it to any square to the left, possibly moving over some of
+
+## Solution to Nimble
+A coin on square n is the same as a nim-heap of size n.
+
+```java
+Scanner sc = new Scanner(System.in);
+int t = sc.nextInt();
+while((t--) > 0) {
+    int n = sc.nextInt();
+    int nimSum = 0;
+    for(int i = 0; i < n; i++) {
+        int tmp = sc.nextInt();
+        if(tmp % 2 == 1) nimSum ^= i;
+    }
+
+    System.out.println(nimSum > 0 ? "First" : "Second");    
+}
+```
+# Poker Nim
+This game is played the same as regular Nim, but a player can now have the
+option on his turn of either adding more chips to a heap or subtracting chips
+from a heap. We call the heaps in such a game bogus nim heaps. What is
+the winning strategy in this game?
+A closer look reveals that this is just the same game as regular Nim. Any
+time a player adds chips to a pile, the next player can exactly reverse the
+move and return the game to its original position. In this way, adding chips is a reversible move. So just play regular Nim, but any time your opponent
+adds chips, just remove the same amount on your turn.
+
+# Nim related Game
+[Topcoder Algorithm Games](https://www.topcoder.com/community/data-science/data-science-tutorials/algorithm-games/)
+[Nim](http://web.mit.edu/sp.268/www/nim.pdf)
+[Nim Example](http://www.suhendry.net/blog/?p=1612)
+[Nimble Game](http://mathoverflow.net/questions/37303/the-game-of-nimble-with-no-stacking)
+
+# Sprague–Grundy theorem
+[Sprague–Grundy wiki](https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem)
+[Nimber wiki](https://en.wikipedia.org/wiki/Nimber)
+
+The Sprague–Grundy theorem states that every impartial game under the normal play convention is equivalent to a nimber. The Grundy value or nim-value of an impartial game is then defined as the unique nimber that the game is equivalent to.
