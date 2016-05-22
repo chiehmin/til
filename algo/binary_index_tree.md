@@ -18,7 +18,7 @@ Suppose we are looking for cumulative frequency of index 13 (for the first 13 el
 ```
 
 ```java
-int read(int idx){
+int read(int idx) {  // read cumulative
     int sum = 0;
     while (idx > 0){
         sum += tree[idx];
@@ -32,7 +32,7 @@ int read(int idx){
 
 ```java
 void update(int idx, int val){
-    while (idx <= tree.length){
+    while (idx < tree.length){
         tree[idx] += val;
         idx += (idx & -idx);
     }
