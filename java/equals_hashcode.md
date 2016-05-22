@@ -9,3 +9,32 @@ Whenever a.equals(b), then a.hashCode() must be same as b.hashCode().
 If you override one, then you should override the other. Use the same set of fields that you use to compute equals() to compute hashCode().
 
 > FatMinMin's note: You can return the same hashcode for different objects that return false for equals methods. Just like the hash function may collide.
+
+```java
+public class Test
+{
+	private int num;
+	private String data;
+	public boolean equals(Object obj)
+	{
+		if(this == obj)
+			return true;
+			if((obj == null) || (obj.getClass() != this.getClass()))
+				return false;
+			// object must be Test at this point
+			Test test = (Test)obj;
+			return num == test.num &&
+			(data == test.data || (data != null && data.equals(test.data)));
+		}
+
+		public int hashCode()
+		{
+			int hash = 7;
+			hash = 31 * hash + num;
+			hash = 31 * hash + (null == data ? 0 : data.hashCode());
+			return hash;
+		}
+
+		// other methods
+}
+```
