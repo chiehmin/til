@@ -2,7 +2,7 @@
 
 ## Installation
 ```shell
-$ sudo dnf install texlive
+$ sudo dnf install texlive texlive-biblatex
 $ sudo dnf install latexmk # used by atom latex plugins
 ```
 #### Xelatex
