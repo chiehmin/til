@@ -23,10 +23,27 @@ $ sudo systemctl restart docker
 
 Finally running the GUI app with: `DISPLAY=:1.0` appname
 
-## Using x11vnc to access Xvfb
+### Using x11vnc to access Xvfb
 
 ```bash
 $ x11vnc -display :1   # the display we created using Xvfb
 $ vncviewer :0         # connection localhost vncserver created by x11vnc
 ```
+
+### Another short solution
+
+[so](http://stackoverflow.com/questions/16296753/can-you-run-gui-apps-in-a-docker-container)
+
+On host
+```bash
+# making docker 5900 port to be visible by outside
+$ docker run -p 5900 [container]
+```
+
+Inside container
+```bash
+# "-create" will create a Xvfb  session if no session is found.
+$ x11vnc -create 
+```
+
 
