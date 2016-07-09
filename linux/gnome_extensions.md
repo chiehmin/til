@@ -1,6 +1,7 @@
 # Useful GNOME extensions
 
 * [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+* [Open Weather](https://extensions.gnome.org/extension/750/openweather/)
 * [TopIcon Plus](https://extensions.gnome.org/extension/1031/topicons/)
 * [Todo.txt](https://extensions.gnome.org/extension/570/todotxt/)
 
