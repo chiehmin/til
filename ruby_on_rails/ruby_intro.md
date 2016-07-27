@@ -7,8 +7,8 @@
 ---
 
 # 本次大綱
-- [Ruby for Rails](#Ruby-for-Rails)
-  - 常數與變數
+- [Ruby for Rails](#ruby-for-rails)
+  - [常數與變數](#常數與變數)
   - [字串](#字串與符號)
   - [條件式](#條件式)
   - [正規表達式](#正規表達式)
