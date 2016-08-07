@@ -34,7 +34,7 @@
 ## 在Rails Console下操作Model
 - Recall：model是對應資料庫中的物件，幫助我們省去寫SQL的麻煩
 - 在Controller中花費不少力氣在操作model
-- 先與Model熟悉：在rails c中練習對model的CRUD (以User這個class為例)
+- 先與Model熟悉：在```rails c```中練習對model的CRUD (以User這個class為例)
   - 取得當前所有的User (回傳類似陣列的結構)
   ```ruby
   User.all
@@ -84,7 +84,7 @@
     User.find_by_name("user1")
     User.find_by_email("5566")
     ```
-    - 另一種寫法：`find_by`
+    - 另一種寫法：`find_by` (common use)
     ```ruby
     User.find_by(id: 1)
     User.find_by(name: "user1")
@@ -111,6 +111,7 @@
       - 不需要save，執行完即有save的效果
       - 接受一個hash結構，類似`new`或`create`的時候那樣
       - 回傳true或false：代表是否有成功更新
+      - 資料檢查(validation)
       ```ruby
       u.update(name: "new_name")
       u.update_attributes(name: "new_name")
@@ -148,9 +149,19 @@
 - 純手工打造：自己打造上述的功能
 
 ## 手動建立Controller
+- first create new rail project
+
+    ```
+    mkdir mytest
+    cd mytest
+    rails new .  
+    bundle install  
+    rake db:migrate  
+    ```
+
 - 建立(generate)新的controller：`rails g controller StaticPages index about`
-  - 產生controller：`app/controllers/tatic_pages_controller.rb`
-  - 產生兩個controller action：index和about，但方法為空
+  - 產生controller：`app/controllers/static_pages_controller.rb`
+  - 產生兩個controller **action**：index和about，但方法為空
   - 產生兩條路徑(route)：`get "static_pages/index"`與`get "static_pages/about"`
     - prefix為`static_pages_index`和`static_pages_about`
     - 這兩個路徑不滿足RESTful，單純只是定義URI+動詞要傳送到哪個action
@@ -162,6 +173,14 @@
   - 產生test_unit：用來做網頁測試的，現在先忽略之
   - Controller的class一定是大寫開頭，因此在generate時使用`staticPages`也沒差
     - 但不能用`staticpages`，Rails會辨認為`Staticpages`而非`StaticPages`
+    - Ex: app/views => static_pages folder  
+         app/controler => static_pages_controller.rb
+    
+    In pry
+    ```
+      "my_static_pages".camelize  => "MyStaticPages"
+      "MyStaticPages".underscore  => "my_static_pages"
+    ```
 - 如果沒有指定要新增的action(只有`rails g controller StaticPages`)
   - 不會更動rotues
   - 只會在views中生成空資料夾：`app/views/static_pages`
@@ -169,6 +188,7 @@
   - 把g換成d
   - `rails d controller StaticPages index about`
   - 若有指定要移除的action(即`index`和`about`)，則routes和views都會一併砍
+  - action need to be specified, otherwise destroy will fail
 - Controller與View
   - 當controller的action執行完後，會執行相對應名稱的view
     - 例如執行完`UsersController#index`之後會顯示`views/users/index.html.erb`
@@ -204,7 +224,7 @@
 
 ## Route進階探討
 - 指定瀏覽器的Requst(URI+動詞)要對應到哪個controller
-- 指定網站根目錄要去的action：`root :to => "controller#action"`
+- 指定網站根目錄要去的action(app/config/routes.rb)：`root :to => "controller#action"`
 - 使用RESTful語法的話，可以快速產生許多條routes，例如`resources :users`
 - 但如果不想遵守RESTful，或者是有自訂route需求的時候，可以用以下幾個方式
   - `動詞 "網址"`
@@ -232,7 +252,7 @@
   - 如果想自己定義屬於`UsersController`底下的route，可以用`do-end`
     - 需搭配`collection`或`member`
     - 使用`collection`
-      - 用於不指定對象時使用，例如index、create
+      - 用於不指定對象時使用(No Id)，例如index、create
       - 例如：
       ```ruby
       resources :users do
@@ -244,7 +264,7 @@
       - 產生：`my_route_users GET    /users/my_route(.:format)     users#my_route`
       - 同樣可以搭配`to`和`as`來改變action和prefix
     - 使用`member`
-      - 用於需要指定一個對象的時候，例如show、edit
+      - 用於需要指定一個對象(Id)的時候，例如show、edit
       - 例如：
       ```ruby
       resources :users do
@@ -292,7 +312,7 @@
                       DELETE /admin/users/:id(.:format)          admin/users#destroy
 
   ```
-  - Controller需要多找一層資料夾，變成`app/admin/users_controller.rb`
+  - Controller需要多找一層資料夾，變成`app/controllers/admin/users_controller.rb`
   - Controler名稱改變，需要加上Module name，變成`Admin::UsersController`
   - Views也換位置了，變成去找`app/views/admin/users/*`
   - 以上的變動達到了用namespace完全隔離的效果
@@ -334,7 +354,7 @@
                         DELETE /users/:id(.:format)                users#destroy
 
     ```
-
+  You can also divide the it manually(using as to) => hard work
 ## View的使用
 - 副檔名`erb`代表Embedded Ruby，即在HTML中嵌入Ruby語法
 - 使用erb
@@ -473,6 +493,13 @@
       - 例如：`link_to "Show", article_path(article), class: "btn btn-primary"`
     - 在`index.html.erb`中設定連結到`show`的畫面
       - 加入`<th>Show</th>`與`<td><%= link_to "Show", article_path(article) %></td>`
+      - In pry
+      ```
+        app.article_path(Article.find(1)) => /articles/1
+        app.article_path(1) => /articles/1
+        app.article_path  => error
+        app.articles_path => /articles
+      ```
       - 完整程式碼
       ```html
       <h1>Listing Articles</h1>
@@ -559,16 +586,18 @@
       - 使用`render`，打破action名稱與view名稱的掛勾
       - 因為想要保留畫面上的資料，不希望用`@article = Article.new`蓋掉
       - 因此不能用`redirect_to`
+      - `redirect_to` & `render` can use other view, no need the rule of action-mapping-view
       - 簡單比較兩者：
-        - `redirect_to`：重新執行controller action、重新生成view
+        - `redirect_to`：**重新執行controller action**、重新生成view
           - 因此`@article = Article.new`會蓋掉`@article = Article.new(params[:article])`
         - `render`：只根據當前action的結果，生成指定的view
           - 不會發生蓋掉，因為直接生成view了，不會執行`@article = Article.new`
     - 加入儲存的程式碼
     ```ruby
-    @article = Article.new(params[:article])
+    def create
+      @article = Article.new(params[:article])   #or  @article = Article.create(params[:article])
       if @article.save
-        redirect_to article_path(@article)
+        redirect_to article_path(@article)  
       else
         render action: :new
       end
@@ -602,7 +631,7 @@
     - 注意到那個`private`了嗎？
       - 之前提到，controller內定義的method都會被視為action，可以被`routes.rb`所對應
       - 如果我只想定義controller內部用的method，不想成為可對應的action怎麼辦？
-      - 使用`private`關鍵字：使得該關鍵字之後的方法都只能做為內部使用
+      - 使用`private`關鍵字：使得該關鍵字之後的方法都只能做為內部使用(all the functions below, not only one function the private keyword), only used for function not for action
     - 再次瀏覽，應該可以成功建立article了
   - 注意：目前的`save`不會有失敗的場合，因為沒有定義失敗的條件(例如不能留白等等)
     - 之後做資料驗證時，就會看到`save`失敗的情況
@@ -699,7 +728,7 @@
     - 在`new.html.erb`與`edit.html.erb`中，中間都有一個一模一樣的表單(form)
     - 使用partial：將重複的code獨立出來，讓要使用的地方include
     - 建立partial：
-      - 建立新檔案：`views/article/_form.html.erb`
+      - 建立新檔案：`views/articles/_form.html.erb`
         - 注意！要被他人共用的partial要用 **底線開頭**
         - 把表單內容貼在裡面
         ```html
@@ -736,6 +765,7 @@
         ```html
         <h1><%= title %></h1>
         ```
+      - can also use in the style class
 
 ## View的其他議題
 - layout
@@ -747,6 +777,7 @@
   - 新增並指定不同的layout
     - 如果想要替網站自訂不同layout，可以自行新增在`views/layouts`資料夾下
     - 例如新增：`views/layouts/my_layout.html.erb`
+    - Generally, copy the default layout `views/layouts/application.html.erb` and modify it
     - 在controller指定自己的layout：在controller class的下方加入`layout 'my_layout'`    
     ```ruby
     class ArticlesController < ApplicationController
@@ -830,7 +861,9 @@
     - 在controller中使用：使flash message加上時間
     ```ruby
     redirect_to @article, notice: "Article was successfully created at #{fmt_time(Time.now)}."
+    redirect_to article_path(@article), notice: "Article was successfully created at #{fmt_time(Time.now)}." # same as the above
     ```
+    redirect_to + **object** => will call the action article#show
     - 在view中使用：顯示article建立與更新的時間
     ```html
     <table>
@@ -913,6 +946,7 @@
       - 例如：`Article.count`
       - 效能高：直接產生特殊的SQL，而非全部撈回來
       - 其他類似的用法：`average`、`sum`、`maximum`、`minimum`
+      -  ` Article.sum(:id)`
     - limit
       - 限制找出來的資料筆數上限
       - 例如：`Article.limit(5)`
@@ -925,6 +959,8 @@
       - 例如：`Article.all.select(:id, :title)`
     - where
       - 可以自行指定搜尋條件
+      - will return a array (even if there is only one record)
+      - use it when querying many records, `find_by` only return a record
       - 自可以自行用AND、OR等串接搜尋條件
       - 例如：`Article.where("title = 't1' and content = 'content'")`
       - 預防SQL Injection: 可用?來取代欄位
