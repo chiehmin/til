@@ -619,6 +619,15 @@ end
   ```
   rails g mailer NotifyArticle
   ```
+- 設定hostname，用於網址產生
+  - 修改`config/environments/development.rb`，在block內加入
+  ```ruby
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  ```
+  - 若要部署到Heroku上，則要修改`config/environments/production.rb`，在block內加入
+  ```ruby
+  config.action_mailer.default_url_options = { host: 'APPLICATION_NAME.herokuapp.com' }
+  ```
 - 設定`ActionMailer`
   - 注意！在不同Rails版本中以下設定會有些微差異，這裡以`4.0.2`版本為主(PLUS主機的版本)
   - 其實類似一個小型的MVC，先執行action，再產生view
