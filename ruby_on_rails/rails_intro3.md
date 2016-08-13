@@ -365,7 +365,7 @@ end
       - 記得先建立員工的model：`rails g model employee name:string shop_id:integer`
       - 關聯性
         - 店主 `has_many` 商店
-        - 商店 `belongs_to` 員工
+        - 商店 `has_many` 員工
         - 商店 `belongs_to` 店主
         - 員工 `belongs_to` 商店
       - 想要透過`owner.employees`來取的某一位店主旗下的所有店的所有員工
