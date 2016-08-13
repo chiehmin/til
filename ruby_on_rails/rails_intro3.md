@@ -478,6 +478,10 @@ end
       - `\z`：字串結尾 (因安全問題，禁止使用行尾`$`)
       - `\w`：一個英數字
       - `{5,10}`：由5~10個單位組成
+      ```ruby
+      "aaaaaaa\nbbbbbbbbbb" =~ /^\w+$/         # return 0
+      "aaaaaaa\nbbbbbbbbbb" =~ /\A\w+\z/       # return nil
+      ```
     - 加入至model
     ```ruby
     validates :name, format: { with: /\A\w{5,10}\z/ }
