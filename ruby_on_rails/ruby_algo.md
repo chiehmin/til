@@ -1,7 +1,31 @@
 # Useful api
 
+### Slice
+```ruby
+array[index]                # -> obj      or nil
+array[start, length]        # -> an_array or nil
+array[range]                # -> an_array or nil
+array.slice(index)          # -> obj      or nil
+array.slice(start, length)  # -> an_array or nil
+array.slice(range)          # -> an_array or nil
+
+# Example
+a = [ "a", "b", "c", "d", "e" ]
+a[2] +  a[0] + a[1]    #=> "cab"
+a[6]                   #=> nil
+a[1, 2]                #=> [ "b", "c" ]
+a[1..3]                #=> [ "b", "c", "d" ]
+a[4..7]                #=> [ "e" ]
+a[6..10]               #=> nil
+a[-3, 3]               #=> [ "c", "d", "e" ]
+# special cases
+a[5]                   #=> nil
+a[5, 1]                #=> []
+a[5..10]               #=> []
+```
+
 ### Join
-```Ruby
+```ruby
 [ "a", "b", "c" ].join        #=> "abc"
 [ "a", "b", "c" ].join("-")   #=> "a-b-c"
 [ 1, 2, 3 ] * ","  #=> "1,2,3"
