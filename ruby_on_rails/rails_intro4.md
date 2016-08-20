@@ -34,6 +34,7 @@
   gem 'capybara' # 進行功能測試或整合測試(包含使用者互動)
   gem 'factory_girl_rails' # 產生測試用的資料
   gem 'faker' # 產生假資料供測試使用
+  gem 'rails-controller-testing'
   ```
   - 產生RSpec設定檔：`rails g rspec:install`
   - 產生rspec binstub：`bundle binstub rspec-core`
