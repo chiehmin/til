@@ -30,7 +30,7 @@ arr = Array.new(10)
 arr = Array.new(10) { |i| i }
 
 # 2d array
-x = Array.new(10) { Array.new(20) }
+arr = Array.new(10) { Array.new(20) }
 ```
 
 ### Slice
