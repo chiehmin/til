@@ -1,5 +1,26 @@
 # Useful api
 
+### Input and Output
+```ruby
+# stdin
+n = gets.to_i
+arr = gets.split.map(&:to_i)
+
+# stdout
+printf("%d %.2f %s\n", 1, 99.3, "Justin")
+x = "%d %.2f %s" % [1, 99.3, "Justin"]
+
+# File Input
+file = open("5566.txt", "r")
+line = file.gets
+# or
+open("5566.txt", "r") do |file|
+    file.each do |line|
+        print line
+    end
+end
+```
+
 ### Slice
 ```ruby
 array[index]                # -> obj      or nil
