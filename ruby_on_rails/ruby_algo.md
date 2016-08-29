@@ -21,6 +21,18 @@ open("5566.txt", "r") do |file|
 end
 ```
 
+### Allocating Array
+```ruby
+# 1d array
+arr = Array.new(10)
+
+# array with default value
+arr = Array.new(10) { |i| i }
+
+# 2d array
+x = Array.new(10) { Array.new(20) }
+```
+
 ### Slice
 ```ruby
 array[index]                # -> obj      or nil
