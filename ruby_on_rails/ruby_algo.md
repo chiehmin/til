@@ -73,6 +73,7 @@ arr #=> [2, 3, 4, 5]
 ```ruby
 # 1d array
 arr = Array.new(10)
+arr = [0] * 10
 
 # array with default value
 arr = Array.new(10) { |i| i }
