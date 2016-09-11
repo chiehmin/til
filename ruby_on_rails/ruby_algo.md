@@ -111,3 +111,10 @@ a[5..10]               #=> []
 [ "a", "b", "c" ].join("-")   #=> "a-b-c"
 [ 1, 2, 3 ] * ","  #=> "1,2,3"
 ```
+
+## String
+### Iterating over String
+```ruby
+s = "abcdefg"
+s.each_char { |c| puts c }
+```
