@@ -25,7 +25,8 @@ end
 ```ruby
 # Traverse
 arr = [1, 2, 3, 4, 5]
-arr.each { |val| print val }
+5.times { |i| puts arr[i] }
+arr.each { |val| puts val }
 arr.each_with_index { |val, idx| puts "arr[#{idx}] = #{val}" }
 arr.reverse_each { |val| puts val }
 arr.reverse.each_with_index { |val, idx| puts "arr[#{idx}] = #{val}" }
