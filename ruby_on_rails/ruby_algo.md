@@ -20,6 +20,53 @@ open("5566.txt", "r") do |file|
     end
 end
 ```
+## Array
+### Iterating over Arrays
+```ruby
+# Traverse
+arr = [1, 2, 3, 4, 5]
+arr.each { |val| print val }
+arr.each_with_index { |val, idx| puts "arr[#{idx}] = #{val}" }
+arr.reverse_each { |val| puts val }
+arr.reverse.each_with_index { |val, idx| puts "arr[#{idx}] = #{val}" }
+
+# Map
+arr.map { |a| 2*a }   #=> [2, 4, 6, 8, 10]
+arr                   #=> [1, 2, 3, 4, 5]
+arr.map! { |a| a**2 } #=> [1, 4, 9, 16, 25]
+arr                   #=> [1, 4, 9, 16, 25]
+
+# Filter
+arr = [1, 2, 3, 4, 5, 6]
+arr.select { |a| a > 3 }     #=> [4, 5, 6]
+arr.reject { |a| a < 3 }     #=> [3, 4, 5, 6]
+```
+
+### Adding Items to Arrays
+```ruby
+# push
+arr = [1, 2, 3, 4]
+arr.push(5) #=> [1, 2, 3, 4, 5]
+arr << 6    #=> [1, 2, 3, 4, 5, 6]
+
+# push front
+arr.unshift(0) #=> [0, 1, 2, 3, 4, 5, 6]
+
+# insert
+arr.insert(3, 'apple')  #=> [0, 1, 2, 'apple', 3, 4, 5, 6]
+```
+
+### Removing Items from an Array
+```ruby
+# pop
+arr =  [1, 2, 3, 4, 5, 6]
+arr.pop #=> 6
+arr #=> [1, 2, 3, 4, 5]
+
+# pop front
+arr.shift #=> 1
+arr #=> [2, 3, 4, 5]
+```
 
 ### Allocating Array
 ```ruby
