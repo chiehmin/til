@@ -56,5 +56,7 @@ May  4 17:52 /usr/lib/systemd/system/runlevel6.target -> reboot.target
 | init 5      |  systemctl isolate graphical.target   |
 | init 6      |  systemctl reboot                     |
 
-#### Boot to rescue target
+#### Recovering root password in rescue mode
+[redhat tutorial](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Terminal_Menu_Editing_During_Boot.html#sec-Recovering_Root_Password)
+
 Pressing `e` on the boot entry. Adding `systemd.unit=rescue.target` to kernel line.
