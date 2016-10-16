@@ -1,6 +1,9 @@
 # Quick Select
 ```ruby
-def select(nums, k)
+def find_kth_largest(nums, k)
+    # Using randomization to guarantee O(N)
+    randomizeArray(nums)
+    
     k = nums.length - k
     lo, hi = 0, nums.length - 1
     while lo < hi 
@@ -14,6 +17,12 @@ def select(nums, k)
         end
     end
     nums[k]
+end
+def randomizeArray(nums)
+    (0...nums.length).each do |i|
+        j = rand(0...nums.length)
+        nums[i], nums[j] = nums[j], nums[i]
+    end
 end
 def partition(nums, lo, hi)
     p = lo
