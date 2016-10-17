@@ -119,3 +119,35 @@ a[5..10]               #=> []
 s = "abcdefg"
 s.each_char { |c| puts c }
 ```
+### Appending and Prepending
+```ruby
+# Append
+s = "abc"
+s.concat "cde"
+s << "cde"
+
+# Prepend
+s.prepend "haha"
+```
+
+### isDigit and is Alpha
+[so](http://stackoverflow.com/questions/14551256/how-to-find-out-in-ruby-if-a-character-is-a-letter-or-a-digit)
+```ruby
+def numeric?(lookAhead)
+  lookAhead =~ /[0-9]/
+end
+
+def letter?(lookAhead)
+  lookAhead =~ /[A-Za-z]/
+end
+
+# or using POSIX bracket expressions
+
+def letter?(lookAhead)
+  lookAhead =~ /[[:alpha:]]/
+end
+
+def numeric?(lookAhead)
+  lookAhead =~ /[[:digit:]]/
+end
+```
