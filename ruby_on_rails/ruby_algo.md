@@ -151,3 +151,14 @@ def numeric?(lookAhead)
   lookAhead =~ /[[:digit:]]/
 end
 ```
+
+## Hash
+[apidoc](http://ruby-doc.org/core-2.3.1/Hash.html)
+
+### Default value for Hash
+```ruby
+grades = Hash.new(0)
+# or
+grades = {}
+grades.default = 0
+```
