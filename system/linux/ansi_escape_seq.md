@@ -4,7 +4,7 @@
 - [Escape Character之應用-ANSI色彩](http://cypresslin.web.fc2.com/Memo/M-EscCharANSI.html)
 
 ```python
-# \033 is the decimal ascii code for ECS
+# \033 is the oct ascii code for ECS
 
 RED = "\033[1;31m"
 GRN = "\033[1;32m"
